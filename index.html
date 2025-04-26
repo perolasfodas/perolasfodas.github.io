@@ -33,13 +33,18 @@
             background: #220000;
             padding: 10px;
             border-bottom: 2px solid #440000;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
         }
         nav button {
+            flex: 1 1 auto;
+            min-width: 80px;
             background: #440000;
             color: #ff4d4d;
             border: none;
             padding: 10px 20px;
-            margin: 0 10px;
             font-size: 1em;
             cursor: pointer;
             border-radius: 8px;
@@ -103,6 +108,7 @@
         <button onclick="showSection('home')">Home</button>
         <button onclick="showSection('fysh')">Fysh</button>
         <button onclick="showSection('nostalgia')">Nostalgia</button>
+        <button onclick="showSection('olhinhos')">👀</button>
     </nav>
 
     <section id="home">
@@ -133,6 +139,13 @@
         </div>
     </section>
 
+    <section id="olhinhos">
+        <h2 style="margin-top: 40px; font-size: 2em;">👀</h2>
+        <div style="display: flex; justify-content: center; padding: 20px;">
+            <img src="10.png" alt="Brincadeira com amigos" style="max-width: 90%; height: auto; border: 3px solid #660000; border-radius: 10px; box-shadow: 0 0 10px #000;">
+        </div>
+    </section>
+
     <footer>
         Site criado por Chapado e T4fz - 2025
     </footer>
@@ -144,7 +157,6 @@
             });
             const section = document.getElementById(id);
             section.classList.add('active');
-            localStorage.setItem('currentSection', id);
         }
 
         window.onload = () => {
