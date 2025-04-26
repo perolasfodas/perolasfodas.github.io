@@ -16,10 +16,18 @@
         }
         header {
             padding: 20px;
-            font-size: 2em;
-            font-weight: bold;
             background: #222;
             border-bottom: 2px solid #444;
+        }
+        header img {
+            width: 150px;
+            max-width: 80%;
+            margin-bottom: 10px;
+        }
+        header h1 {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 10px 0 0 0;
         }
         nav {
             background: #111;
@@ -80,7 +88,10 @@
     </style>
 </head>
 <body>
-    <header>PÉROLAS FODAS INSANAS</header>
+    <header>
+        <img src="perolas.png" alt="Pérolas Fodas Logo">
+        <h1>PÉROLAS FODAS INSANAS</h1>
+    </header>
 
     <nav>
         <button onclick="showSection('perolas')">Pérolas</button>
@@ -120,7 +131,6 @@
             localStorage.setItem('currentSection', id);
         }
 
-        // Mostra a última seção acessada (ou padrão para 'perolas')
         window.onload = () => {
             const saved = localStorage.getItem('currentSection') || 'perolas';
             showSection(saved);
