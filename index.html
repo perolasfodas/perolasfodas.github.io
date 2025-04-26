@@ -1,10 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="favicon.png" type="image/png">
-
+    <link rel="icon" href="favicon.png" type="image/png">
     <title>PÉROLAS FODAS INSANAS</title>
     <style>
         body {
@@ -20,6 +20,24 @@
             font-weight: bold;
             background: #222;
             border-bottom: 2px solid #444;
+        }
+        nav {
+            background: #111;
+            padding: 10px;
+            border-bottom: 2px solid #333;
+        }
+        nav button {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        nav button:hover {
+            background: #555;
         }
         .gallery {
             display: flex;
@@ -39,6 +57,15 @@
         .gallery img:hover {
             transform: scale(1.05);
         }
+        section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        section.active {
+            display: block;
+            opacity: 1;
+        }
         footer {
             margin-top: 40px;
             padding: 20px;
@@ -53,27 +80,51 @@
     </style>
 </head>
 <body>
-    <header>
-        PÉROLAS FODAS INSANAS
-    </header>
+    <header>PÉROLAS FODAS INSANAS</header>
 
-    <div class="gallery">
-        <div style="text-align: center;">
-<h2 style="margin-bottom: 10px; font-size: 2em;">FYSH</h2>
-<img src="5.png" alt="Imagem 1">
-</div>
-        <img src="2.png" alt="Imagem 2">
-        <img src="3.png" alt="Imagem 3">
-        <img src="4.png" alt="Imagem 4">
-    </div>
+    <nav>
+        <button onclick="showSection('perolas')">Pérolas</button>
+        <button onclick="showSection('nostalgia')">Nostalgia</button>
+    </nav>
 
+    <section id="perolas">
+        <div class="gallery">
+            <div style="text-align: center;">
+                <h2 style="margin-bottom: 10px; font-size: 2em;">FYSH</h2>
+                <img src="5.png" alt="Imagem 1">
+            </div>
+            <img src="2.png" alt="Imagem 2">
+            <img src="3.png" alt="Imagem 3">
+            <img src="4.png" alt="Imagem 4">
+        </div>
+    </section>
 
-    <h2 style="margin-top: 60px; font-size: 2em;">NOSTALGIA</h2>
-    <div class="gallery">
-        <img src="6.png" alt="Nostalgia">
-    </div>
+    <section id="nostalgia">
+        <h2 style="margin-top: 40px; font-size: 2em;">NOSTALGIA</h2>
+        <div class="gallery">
+            <img src="6.png" alt="Nostalgia">
+        </div>
+    </section>
+
     <footer>
         Site criado por Chapado e T4fz - 2025
     </footer>
+
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('section').forEach(sec => {
+                sec.classList.remove('active');
+            });
+            const section = document.getElementById(id);
+            section.classList.add('active');
+            localStorage.setItem('currentSection', id);
+        }
+
+        // Mostra a última seção acessada (ou padrão para 'perolas')
+        window.onload = () => {
+            const saved = localStorage.getItem('currentSection') || 'perolas';
+            showSection(saved);
+        }
+    </script>
 </body>
 </html>
