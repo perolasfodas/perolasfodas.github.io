@@ -74,6 +74,13 @@
             display: block;
             opacity: 1;
         }
+        .home-text {
+            padding: 40px 20px;
+            max-width: 700px;
+            margin: auto;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
         footer {
             margin-top: 40px;
             padding: 20px;
@@ -94,9 +101,18 @@
     </header>
 
     <nav>
+        <button onclick="showSection('home')">Home</button>
         <button onclick="showSection('fysh')">Fysh</button>
         <button onclick="showSection('nostalgia')">Nostalgia</button>
     </nav>
+
+    <section id="home">
+        <div class="home-text">
+            <h2>Bem-vindo ao PÉROLAS FODAS INSANAS</h2>
+            <p>Esse site é um mural insano com as melhores pérolas e momentos icônicos da galera, Aqui você pode encontrar de tudo.</p>
+            <p>Clique nos botões acima para navegar pelos conteúdos.</p>
+        </div>
+    </section>
 
     <section id="fysh">
         <div class="gallery">
@@ -132,8 +148,7 @@
         }
 
         window.onload = () => {
-            const saved = localStorage.getItem('currentSection') || 'fysh';
-            showSection(saved);
+            showSection('home');
         }
     </script>
 </body>
